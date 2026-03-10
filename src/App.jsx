@@ -1,6 +1,6 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
 
-const weddingDate = new Date('2027-03-20T17:00:00')
+const weddingDate = new Date('2026-11-14T17:00:00')
 
 const sections = [
   { id: 'inicio', label: 'Inicio' },
@@ -69,7 +69,7 @@ export default function App() {
         >
           <div className="max-w-3xl rounded-2xl bg-black/30 p-8 text-white backdrop-blur-sm">
             <p className="mb-3 text-sm uppercase tracking-[0.25em]">Nuestra Boda</p>
-            <h1 className="text-4xl font-semibold md:text-6xl">Andrea & Daniel</h1>
+            <h1 className="text-4xl font-semibold md:text-6xl">Sadai & Jair</h1>
             <p className="mt-4 text-base md:text-lg">Te invitamos a celebrar con nosotros este día tan especial.</p>
           </div>
         </section>
@@ -120,11 +120,11 @@ export default function App() {
               <h2 className="text-3xl font-semibold md:text-4xl">Itinerario</h2>
               <ul className="mt-8 space-y-5 text-base md:text-lg">
                 <li className="border-l-2 border-wedding-rose pl-4">
-                  <p className="font-semibold">4:30 PM - Recepción</p>
+                  <p className="font-semibold">5:30 PM - Ceremonia religiosa</p>
                   <p className="text-sm opacity-80">Bienvenida y registro de invitados</p>
                 </li>
                 <li className="border-l-2 border-wedding-rose pl-4">
-                  <p className="font-semibold">5:00 PM - Ceremonia</p>
+                  <p className="font-semibold">6:15 PM - Ceremonia</p>
                   <p className="text-sm opacity-80">Intercambio de votos</p>
                 </li>
                 <li className="border-l-2 border-wedding-rose pl-4">
@@ -146,7 +146,7 @@ export default function App() {
             <div className="overflow-hidden rounded-2xl shadow-xl">
               <iframe
                 title="Ubicación de la boda"
-                src="https://www.google.com/maps?q=Palacio+de+Bellas+Artes+CDMX&output=embed"
+                src="https://www.google.com/maps?q=Academia+Renacimiento+y+Trinitate+Philharmonia&output=embed"
                 className="h-[60vh] w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
