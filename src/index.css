@@ -1,4 +1,14 @@
-﻿@tailwind base;
+@import url('https://fonts.cdnfonts.com/css/fortalesia-plain-personal-use');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
+@font-face {
+  font-family: 'Bemdayni';
+  src: url('./assets/fonts/Bemdayni Demo.otf') format('opentype');
+  font-display: swap;
+}
+
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -22,3 +32,90 @@ html {
   overflow-y: auto;
   scroll-snap-type: y mandatory;
 }
+
+.font-fortalesia {
+  font-family: 'Fortalesia Plain PERSONAL USE', cursive;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-bemdayni {
+  font-family: 'Bemdayni', serif;
+}
+
+.message-card {
+  position: relative;
+  overflow: hidden;
+  background: #f0ece0;
+  border: clamp(2px, 0.35vw, 4px) solid #71794a;
+  box-shadow: inset 0 0 0 clamp(6px, 1vw, 12px) #f0ece0, inset 0 0 0 clamp(8px, 1.25vw, 15px) #71794a;
+}
+
+.message-corner {
+  position: absolute;
+  z-index: 1;
+  width: clamp(3.8rem, 10vw, 8rem);
+  height: clamp(3.8rem, 10vw, 8rem);
+  color: #71794a;
+}
+
+.message-corner::before,
+.message-corner::after {
+  content: '';
+  position: absolute;
+  border: clamp(1px, 0.2vw, 3px) solid currentColor;
+}
+
+.message-corner::before {
+  top: 16%;
+  left: 14%;
+  width: 70%;
+  height: 70%;
+  border-width: clamp(1px, 0.2vw, 3px) 0 0 clamp(1px, 0.2vw, 3px);
+  border-radius: 80% 0 0;
+}
+
+.message-corner::after {
+  top: 36%;
+  left: 35%;
+  width: 42%;
+  height: 18%;
+  border-radius: 100%;
+  transform: rotate(-38deg);
+}
+
+.message-corner-tl { top: 2%; left: 2%; }
+.message-corner-tr { top: 2%; right: 2%; transform: scaleX(-1); }
+.message-corner-bl { bottom: 2%; left: 2%; transform: scaleY(-1); }
+.message-corner-br { right: 2%; bottom: 2%; transform: scale(-1); }
+
+.message-vine {
+  position: absolute;
+  z-index: 1;
+  left: 24%;
+  width: 52%;
+  height: clamp(2px, 0.3vw, 4px);
+  background: #71794a;
+}
+
+.message-vine::before,
+.message-vine::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: clamp(0.55rem, 1.4vw, 1rem);
+  height: clamp(0.3rem, 0.8vw, 0.6rem);
+  border-radius: 100%;
+  background: #71794a;
+}
+
+.message-vine::before { left: 12%; transform: translateY(-50%) rotate(-28deg); }
+.message-vine::after { right: 12%; transform: translateY(-50%) rotate(28deg); }
+.message-vine-top { top: 4%; }
+.message-vine-bottom { bottom: 4%; }

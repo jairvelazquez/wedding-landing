@@ -1,13 +1,15 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
 
+import academiaVerde from './assets/academiaverde.png'
+
 const weddingDate = new Date('2026-11-14T17:00:00')
 
 const sections = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'presentacion', label: 'Presentación' },
+  { id: 'inicio', label: 'Nuestra Boda' },
+  { id: 'presentacion', label: 'Detalles' },
   { id: 'contador', label: 'Cuenta regresiva' },
-  { id: 'itinerario', label: 'Itinerario' },
-  { id: 'ubicacion', label: 'Ubicación' },
+  { id: 'itinerario', label: 'RSV' },
+  { id: 'ubicacion', label: 'Mesa de regalos' },
 ]
 
 function getTimeLeft(targetDate) {
@@ -67,33 +69,68 @@ export default function App() {
               "linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)), url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80')",
           }}
         >
-          <div className="max-w-3xl rounded-2xl bg-black/30 p-8 text-white backdrop-blur-sm">
-            <p className="mb-3 text-sm uppercase tracking-[0.25em]">Nuestra Boda</p>
-            <h1 className="text-4xl font-semibold md:text-6xl">Sadai & Jair</h1>
-            <p className="mt-4 text-base md:text-lg">Te invitamos a celebrar con nosotros este día tan especial.</p>
-          </div>
+          <h1 className="flex flex-col items-center text-center font-normal text-[#f8f6f1]">
+            <span className="font-fortalesia text-7xl leading-[0.72] md:text-[10rem]">Sadai</span>
+            <span className="flex translate-x-5 items-center justify-center md:translate-x-7">
+              <span
+                className="font-cormorant relative -top-3 mr-1 text-4xl tracking-[0.1em] md:-top-5 md:mr-2 md:text-5xl"
+                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+              >
+                AND
+              </span>
+              <span className="font-playfair relative -top-2 translate-x-1 text-5xl leading-none md:-top-4 md:translate-x-2 md:text-8xl">JAIR</span>
+            </span>
+          </h1>
+          <p className="font-cormorant absolute bottom-12 text-2xl font-medium tracking-[0.18em] text-[#f8f6f1] md:bottom-16 md:text-3xl">
+            14-<span className="text-[0.82em]">NOV</span>-2026
+          </p>
         </section>
 
         <section
           id="presentacion"
-          className="section relative flex items-center justify-center bg-cover bg-center px-6"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(90,38,48,0.58), rgba(90,38,48,0.58)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80')",
-          }}
+          className="section flex items-center justify-center px-5 py-8 text-center md:px-10"
+          style={{ backgroundColor: '#71794A' }}
         >
-          <div className="max-w-3xl text-center text-white">
-            <h2 className="text-3xl font-semibold md:text-5xl">Con mucho amor</h2>
-            <p className="mt-6 text-lg leading-relaxed md:text-2xl">
-              "Después de caminar juntos, llegó el día de decir sí para siempre. Queremos compartir este momento contigo."
-            </p>
-            <p className="mt-8 text-xl font-medium capitalize md:text-2xl">{formattedDate}</p>
+          <div className="message-card w-full max-w-6xl px-[14%] py-[18%] md:aspect-video md:px-[13%] md:py-[10%]">
+            <span aria-hidden="true" className="message-corner message-corner-tl" />
+            <span aria-hidden="true" className="message-corner message-corner-tr" />
+            <span aria-hidden="true" className="message-corner message-corner-bl" />
+            <span aria-hidden="true" className="message-corner message-corner-br" />
+            <span aria-hidden="true" className="message-vine message-vine-top" />
+            <span aria-hidden="true" className="message-vine message-vine-bottom" />
+            <div className="font-bemdayni relative z-10 flex flex-col justify-center space-y-3 text-xl leading-snug text-[#71794A] sm:text-2xl md:h-full md:space-y-5 md:text-3xl">
+              <p>Para nuestros más cercanos:</p>
+              <p>
+                Hay personas que no solo acompañan una historia, sino que se vuelven parte de ella. Ustedes han sido
+                testigos de nuestro camino, de los buenos días y de aquellos que nos enseñaron a crecer, y han visto cómo,
+                poco a poco, encontramos un hogar en el otro.
+              </p>
+              <p>
+                Hoy celebramos nuestra unión de la manera más sagrada y no podríamos imaginar este instante sin quienes
+                han sido parte de nuestra historia y, con cariño, deseamos que también formen parte de todo lo que está por
+                escribirse.
+              </p>
+            </div>
           </div>
         </section>
+        <section className="section flex flex-col items-center justify-center overflow-hidden px-6 py-10 text-center" style={{ backgroundColor: '#f0ece0' }}>
+          <div className="leading-none text-[#71794A]">
+            <p className="font-cormorant text-4xl md:text-6xl">
+              SAVE THE <span className="font-bemdayni text-[1.3em]">D</span>ATE
+            </p>
+            <p className="font-cormorant mt-2 text-xl tracking-wide md:text-3xl">14 DE NOVIEMBRE DE 2026</p>
+          </div>
+          <img src={academiaVerde} alt="Academia Renacimiento Trinitate" className="my-6 w-full max-w-4xl md:my-8" />
+          <div className="leading-none text-[#71794A]">
+            <p className="font-cormorant text-xl md:text-3xl">ACADEMIA RENACIMIENTO TRINITATE</p>
+            <p className="font-bemdayni mt-1 text-2xl md:text-4xl">Cinco treinta de la tarde</p>
+          </div>
+        </section>
+        <section aria-hidden="true" className="section" style={{ backgroundColor: '#71794A' }} />
 
-        <section id="contador" className="section flex items-center justify-center bg-wedding-blush px-6">
+        <section id="contador" className="font-cormorant section flex items-center justify-center bg-wedding-blush px-6">
           <div className="w-full max-w-4xl rounded-3xl bg-white p-8 text-center shadow-xl md:p-12">
-            <h2 className="text-3xl font-semibold md:text-5xl">Faltan...</h2>
+            <h2 className="text-3xl font-semibold md:text-5xl">SE LLEGA EL DIA</h2>
             {timeLeft.isDone ? (
               <p className="mt-8 text-2xl font-semibold text-wedding-rose">Hoy es el gran día</p>
             ) : (
