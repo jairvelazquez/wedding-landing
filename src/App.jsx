@@ -1,15 +1,21 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
 
 import academiaVerde from './assets/academiaverde.png'
+import INICIOFO from "./assets/INICIOFO.jpg";
+import logo from "./assets/path3-5-0.png";
+import solopies from "./assets/acostadospies.jpg";
+import bailando from "./assets/bailando.jpg";
+import principal from "./assets/principal.jpg";
+import papelimage from "./assets/papelimage.jpg";
 
 const weddingDate = new Date('2026-11-14T17:00:00')
 
 const sections = [
   { id: 'inicio', label: 'Nuestra Boda' },
-  { id: 'presentacion', label: 'Detalles' },
+  { id: 'presentacion', label: 'El Gran Día' },
   { id: 'contador', label: 'Cuenta regresiva' },
-  { id: 'itinerario', label: 'RSV' },
-  { id: 'ubicacion', label: 'Mesa de regalos' },
+  { id: 'itinerario', label: 'Tu Presencia' },
+  { id: 'ubicacion', label: 'Un Gran Detalle' },
 ]
 
 function getTimeLeft(targetDate) {
@@ -62,15 +68,21 @@ export default function App() {
 
       <main className="scroll-wrapper pt-14 md:pt-16">
         <section
-          id="inicio"
-          className="section relative flex items-center justify-center bg-cover bg-center px-6 text-center"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)), url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80')",
-          }}
+           id="inicio"
+  className="section relative flex items-start justify-center bg-cover bg-center px-6 pt-24 text-center md:pt-32"
+  style={{
+             backgroundImage: `linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)), url(${INICIOFO})`,
+}}
         >
-          <h1 className="flex flex-col items-center text-center font-normal text-[#f8f6f1]">
-            <span className="font-fortalesia text-7xl leading-[0.72] md:text-[10rem]">Sadai</span>
+          
+        
+          
+
+            <h1 className="flex flex-col items-center text-center font-normal text-[#f8f6f1]"
+    style={{ transform: 'translateY(80px)' }}
+  >
+            
+            <span className="font-fortalesia text-7xl leading-[0.72] md:text-[8rem]">Sadaí</span>
             <span className="flex translate-x-5 items-center justify-center md:translate-x-7">
               <span
                 className="font-cormorant relative -top-3 mr-1 text-4xl tracking-[0.1em] md:-top-5 md:mr-2 md:text-5xl"
@@ -80,40 +92,82 @@ export default function App() {
               </span>
               <span className="font-playfair relative -top-2 translate-x-1 text-5xl leading-none md:-top-4 md:translate-x-2 md:text-8xl">JAIR</span>
             </span>
+            
           </h1>
-          <p className="font-cormorant absolute bottom-12 text-2xl font-medium tracking-[0.18em] text-[#f8f6f1] md:bottom-16 md:text-3xl">
+          <p className="font-cormorant absolute bottom-10 text-2xl font-medium tracking-[0.18em] text-[#f8f6f1] md:bottom-16 md:text-3xl">
             14-<span className="text-[0.82em]">NOV</span>-2026
           </p>
+          
         </section>
 
         <section
-          id="presentacion"
-          className="section flex items-center justify-center px-5 py-8 text-center md:px-10"
-          style={{ backgroundColor: '#71794A' }}
-        >
-          <div className="message-card w-full max-w-6xl px-[14%] py-[18%] md:aspect-video md:px-[13%] md:py-[10%]">
-            <span aria-hidden="true" className="message-corner message-corner-tl" />
-            <span aria-hidden="true" className="message-corner message-corner-tr" />
-            <span aria-hidden="true" className="message-corner message-corner-bl" />
-            <span aria-hidden="true" className="message-corner message-corner-br" />
-            <span aria-hidden="true" className="message-vine message-vine-top" />
-            <span aria-hidden="true" className="message-vine message-vine-bottom" />
-            <div className="font-bemdayni relative z-10 flex flex-col justify-center space-y-3 text-xl leading-snug text-[#71794A] sm:text-2xl md:h-full md:space-y-5 md:text-3xl">
-              <p>Para nuestros más cercanos:</p>
-              <p>
-                Hay personas que no solo acompañan una historia, sino que se vuelven parte de ella. Ustedes han sido
-                testigos de nuestro camino, de los buenos días y de aquellos que nos enseñaron a crecer, y han visto cómo,
-                poco a poco, encontramos un hogar en el otro.
-              </p>
-              <p>
-                Hoy celebramos nuestra unión de la manera más sagrada y no podríamos imaginar este instante sin quienes
-                han sido parte de nuestra historia y, con cariño, deseamos que también formen parte de todo lo que está por
-                escribirse.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section className="section flex flex-col items-center justify-center overflow-hidden px-6 py-10 text-center" style={{ backgroundColor: '#f0ece0' }}>
+  id="presentacion"
+  className="section grid md:grid-cols-2"
+>
+ {/* Mensaje - izquierda, fondo claro */}
+<div
+  className="flex min-h-[50vh] flex-col px-8 pb-14 pt-16 text-center md:min-h-screen md:px-16 md:pt-24"
+  style={{ backgroundColor: '#F5F2EB' }}
+>
+  {/* Título - arriba, separado del borde */}
+  <p className="font-cormorant uppercase text-3xl  tracking-[0.3em] text-[#71794A] md:text-4xl sm:text-xs">
+    Para nuestros más cercanos
+  </p>
+
+ {/* Mensaje - centrado vertical y horizontalmente en el resto del espacio */}
+<div className="flex flex-1 items-center justify-center">
+  <div className="flex flex-col items-center" style={{ transform: 'translateY(-40px)' }}>
+    <div className="font-cormorant flex flex-col space-y-4 text-2xl leading-snug text-[#71794A] sm:text-xs md:text-3xl">
+      <p>
+        Hay personas que no solo acompañan una historia, sino que se vuelven parte de ella. Ustedes han sido
+        testigos de nuestro camino, de los buenos días y de aquellos que nos enseñaron a crecer, y han visto cómo,
+        poco a poco, encontramos un hogar en el otro.
+      </p>
+      <p>
+        Hoy celebramos nuestra unión de la manera más sagrada y no podríamos imaginar este instante sin quienes
+        han sido parte de nuestra historia y, con cariño, deseamos que también formen parte de todo lo que está por
+        escribirse.
+      </p>
+    </div>
+    <p className="font-bemdayni mt-10 w-full text-center text-2xl text-[#71794A] md:mt-14 md:text-6xl">
+      Jair y Sadai
+    </p>
+  </div>
+</div>
+</div>
+
+ {/* Imágenes - derecha */}
+<div
+  className="relative flex min-h-[50vh] items-center justify-center px-6 py-8 md:min-h-screen md:px-10 md:py-12"
+  style={{ backgroundColor: '#F5F2EB' }}
+>
+  {/* Contenedor intermedio que agrupa ambas imágenes */}
+  <div className="relative h-[95%] w-full">
+    {/* Imagen 1 - arriba, izquierda, AL FRENTE */}
+    <div
+      className="absolute left-[8%] right-[52%] top-0 bottom-[35%] z-10 bg-cover outline outline-8 md:left-[8%] md:right-[52%] md:top-0 md:bottom-[35%]"
+      style={{
+        backgroundImage: `url(${principal})`,
+        backgroundPosition: 'center',
+        outlineColor: '#F5F2EB',
+      }}
+    />
+    {/* Imagen 2 - abajo, derecha */}
+    <div
+      className="absolute left-[45%] right-[15%] top-[40%] bottom-0 bg-cover md:left-[45%] md:right-[15%] md:top-[35%] md:bottom-0"
+      style={{
+        backgroundImage: `url(${bailando})`,
+        backgroundPosition: 'center',
+        transform: 'translate(-30px, -110px)',
+      }}
+    />
+  </div>
+</div>
+</section>
+
+<section
+
+        className="section flex flex-col items-center justify-center overflow-hidden px-6 py-10 text-center" style={{ backgroundColor: '#f0ece0' }}>
           <div className="leading-none text-[#71794A]">
             <p className="font-cormorant text-4xl md:text-6xl">
               SAVE THE <span className="font-bemdayni text-[1.3em]">D</span>ATE

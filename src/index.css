@@ -30,7 +30,7 @@ html {
 .scroll-wrapper {
   height: 100vh;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  /*scroll-snap-type: y mandatory;*/
 }
 
 .font-fortalesia {
@@ -52,7 +52,7 @@ html {
 .message-card {
   position: relative;
   overflow: hidden;
-  background: #f0ece0;
+  background: #f0ece056;
   border: clamp(2px, 0.35vw, 4px) solid #71794a;
   box-shadow: inset 0 0 0 clamp(6px, 1vw, 12px) #f0ece0, inset 0 0 0 clamp(8px, 1.25vw, 15px) #71794a;
 }
