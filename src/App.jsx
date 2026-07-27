@@ -102,67 +102,81 @@ export default function App() {
 
         <section
   id="presentacion"
-  className="section grid md:grid-cols-2"
+  className="grid md:grid-cols-2"
 >
- {/* Mensaje - izquierda, fondo claro */}
-<div
-  className="flex min-h-[50vh] flex-col px-8 pb-14 pt-16 text-center md:min-h-screen md:px-16 md:pt-24"
-  style={{ backgroundColor: '#F5F2EB' }}
->
-  {/* Título - arriba, separado del borde */}
-  <p className="font-cormorant uppercase text-3xl  tracking-[0.3em] text-[#71794A] md:text-4xl sm:text-xs">
-    Para nuestros más cercanos
-  </p>
+  {/* Texto */}
+  <div
+    className="flex flex-col justify-center bg-[#F5F2EB] px-6 py-14 md:min-h-screen md:px-16"
+  >
+    <p className="font-cormorant text-center uppercase tracking-[0.25em] text-[#71794A]
+                  text-xl sm:text-2xl md:text-4xl">
+      Para nuestros más cercanos
+    </p>
 
- {/* Mensaje - centrado vertical y horizontalmente en el resto del espacio */}
-<div className="flex flex-1 items-center justify-center">
-  <div className="flex flex-col items-center" style={{ transform: 'translateY(-40px)' }}>
-    <div className="font-cormorant flex flex-col space-y-4 text-2xl leading-snug text-[#71794A] sm:text-xs md:text-3xl">
-      <p>
-        Hay personas que no solo acompañan una historia, sino que se vuelven parte de ella. Ustedes han sido
-        testigos de nuestro camino, de los buenos días y de aquellos que nos enseñaron a crecer, y han visto cómo,
-        poco a poco, encontramos un hogar en el otro.
-      </p>
-      <p>
-        Hoy celebramos nuestra unión de la manera más sagrada y no podríamos imaginar este instante sin quienes
-        han sido parte de nuestra historia y, con cariño, deseamos que también formen parte de todo lo que está por
-        escribirse.
+    <div className="mt-10 max-w-2xl self-center">
+      <div className="font-cormorant space-y-6 text-center text-base leading-relaxed text-[#71794A]
+                      sm:text-lg md:text-2xl md:leading-snug">
+        <p>
+          Hay personas que no solo acompañan una historia, sino que se vuelven
+          parte de ella. Ustedes han sido testigos de nuestro camino, de los
+          buenos días y de aquellos que nos enseñaron a crecer, y han visto
+          cómo, poco a poco, encontramos un hogar en el otro.
+        </p>
+
+        <p>
+          Hoy celebramos nuestra unión de la manera más sagrada y no podríamos
+          imaginar este instante sin quienes han sido parte de nuestra historia
+          y, con cariño, deseamos que también formen parte de todo lo que está
+          por escribirse.
+        </p>
+      </div>
+
+      <p
+        className="font-bemdayni mt-10 text-center text-3xl text-[#71794A]
+                   md:mt-14 md:text-6xl"
+      >
+        Jair y Sadai
       </p>
     </div>
-    <p className="font-bemdayni mt-10 w-full text-center text-2xl text-[#71794A] md:mt-14 md:text-6xl">
-      Jair y Sadai
-    </p>
   </div>
-</div>
-</div>
 
- {/* Imágenes - derecha */}
-<div
-  className="relative flex min-h-[50vh] items-center justify-center px-6 py-8 md:min-h-screen md:px-10 md:py-12"
-  style={{ backgroundColor: '#F5F2EB' }}
->
-  {/* Contenedor intermedio que agrupa ambas imágenes */}
-  <div className="relative h-[95%] w-full">
-    {/* Imagen 1 - arriba, izquierda, AL FRENTE */}
-    <div
-      className="absolute left-[8%] right-[52%] top-0 bottom-[35%] z-10 bg-cover outline outline-8 md:left-[8%] md:right-[52%] md:top-0 md:bottom-[35%]"
-      style={{
-        backgroundImage: `url(${principal})`,
-        backgroundPosition: 'center',
-        outlineColor: '#F5F2EB',
-      }}
-    />
-    {/* Imagen 2 - abajo, derecha */}
-    <div
-      className="absolute left-[45%] right-[15%] top-[40%] bottom-0 bg-cover md:left-[45%] md:right-[15%] md:top-[35%] md:bottom-0"
-      style={{
-        backgroundImage: `url(${bailando})`,
-        backgroundPosition: 'center',
-        transform: 'translate(-30px, -110px)',
-      }}
-    />
+  {/* Imágenes */}
+  <div
+    className="flex items-center justify-center bg-[#F5F2EB] px-6 py-10 md:min-h-screen"
+  >
+    {/* Móvil */}
+    <div className="flex flex-col gap-6 md:hidden w-full max-w-sm">
+      <img
+        src={principal}
+        alt="Jair y Sadai"
+        className="aspect-[4/5] w-full rounded-sm object-cover shadow-xl"
+      />
+
+      <img
+        src={bailando}
+        alt="Jair y Sadai bailando"
+        className="aspect-[4/5] w-full rounded-sm object-cover shadow-xl"
+      />
+    </div>
+
+    {/* Escritorio */}
+    <div className="relative hidden h-[85%] w-full md:block">
+      <div
+        className="absolute left-[8%] top-0 h-[65%] w-[42%] bg-cover bg-center outline outline-8"
+        style={{
+          backgroundImage: `url(${principal})`,
+          outlineColor: "#F5F2EB",
+        }}
+      />
+
+      <div
+        className="absolute bottom-[2%] right-[10%] h-[55%] w-[40%] bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${bailando})`,
+        }}
+      />
+    </div>
   </div>
-</div>
 </section>
 
 <section
