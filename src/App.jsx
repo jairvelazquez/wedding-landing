@@ -1,6 +1,6 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
 
-import academiaVerde from './assets/academiaverde.png'
+import academiaVerde from './assets/academiaverde.svg'
 import INICIOFO from "./assets/INICIOFO.jpg";
 import logo from "./assets/path3-5-0.png";
 import acostadospies from "./assets/acostadospies.jpg";
@@ -29,6 +29,7 @@ import mirada  from "./assets/SAVE SADAI Y JAIR-9.jpg";
 import difuminadalarga  from "./assets/difuminadalarga.jpg";
 import besolarga  from "./assets/besolarga.jpg";
 import besolargabyn  from "./assets/besolargabyn.jpg";
+import academiaLateral from "./assets/SAVE SADAI Y JAIR-4.jpg";
 
 
 const weddingDate = new Date('2026-11-14T17:00:00')
@@ -208,7 +209,6 @@ export default function App() {
 />
 
 <section id="academia"
-
         className="section flex flex-col items-center justify-center overflow-hidden px-6 py-10 text-center" style={{ backgroundColor: '#F5F2EB' }}>
           <div className="leading-none text-[#71794A]">
             <p className="font-cormorant text-4xl md:text-6xl">
@@ -216,7 +216,7 @@ export default function App() {
             </p>
             <p className="font-cormorant mt-2 text-xl tracking-wide md:text-3xl">14 DE NOVIEMBRE DE 2026</p>
           </div>
-          <img src={academiaVerde} alt="Academia Renacimiento Trinitate" className="my-6 w-full max-w-4xl md:my-8" />
+          <img src={academiaVerde} alt="Academia Renacimiento Trinitate" className="my-6 w-full max-w-5xl md:my-8" />
           <div className="leading-none text-[#71794A]">
             <p className="font-cormorant text-xl md:text-3xl">ACADEMIA RENACIMIENTO TRINITATE</p>
             <p className="font-bemdayni mt-1 text-2xl md:text-4xl">Cinco treinta de la tarde</p>
