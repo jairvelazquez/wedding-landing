@@ -3,10 +3,33 @@
 import academiaVerde from './assets/academiaverde.png'
 import INICIOFO from "./assets/INICIOFO.jpg";
 import logo from "./assets/path3-5-0.png";
-import solopies from "./assets/acostadospies.jpg";
+import acostadospies from "./assets/acostadospies.jpg";
 import bailando from "./assets/bailando.jpg";
 import principal from "./assets/principal.jpg";
-import papelimage from "./assets/papelimage.jpg";
+import manosbyn from "./assets/manosbyn.jpg";
+import difuminada from "./assets/difuminada.jpg";
+import anillos from "./assets/anillos.svg";
+import cocteles from "./assets/cocteles.svg";
+import mesa from "./assets/mesa.svg";
+import baileicono from "./assets/baileicono.svg";
+import plato from "./assets/plato.svg";
+import bola from "./assets/bola.svg";
+import snack from "./assets/snack.svg";
+import auto from "./assets/auto.svg";
+import besobyn from "./assets/besobyn.jpg";
+import acostados from "./assets/acostados.jpg";
+import acostadosfoto from "./assets/acostadosfoto.jpg";
+import iniciomanos from "./assets/iniciomanos.jpg";
+import inicioacostados from "./assets/inicioacostados.jpg";
+import inicioaca from "./assets/inicioaca.jpg";
+import baile from "./assets/SAVE SADAI Y JAIR-16 acos.jpg";
+import tomadosmanos from "./assets/SAVE SADAI Y JAIR-4.jpg";
+import vuelta from "./assets/SAVE SADAI Y JAIR-8.jpg";
+import mirada  from "./assets/SAVE SADAI Y JAIR-9.jpg";
+import difuminadalarga  from "./assets/difuminadalarga.jpg";
+import besolarga  from "./assets/besolarga.jpg";
+import besolargabyn  from "./assets/besolargabyn.jpg";
+
 
 const weddingDate = new Date('2026-11-14T17:00:00')
 
@@ -14,8 +37,19 @@ const sections = [
   { id: 'inicio', label: 'Nuestra Boda' },
   { id: 'presentacion', label: 'El Gran Día' },
   { id: 'contador', label: 'Cuenta regresiva' },
-  { id: 'itinerario', label: 'Tu Presencia' },
+  { id: 'confirmacion', label: 'Tu Presencia' },
   { id: 'ubicacion', label: 'Un Gran Detalle' },
+]
+
+const itinerary = [
+  { time: '5:30', label: 'Ceremonia', icon: anillos },
+  { time: '6:15', label: 'Coctel de Bienvenida', icon: cocteles },
+  { time: '7:00', label: 'Recepción', icon: mesa },
+  { time: '7:30', label: 'Primer Baile', icon: baileicono },
+  { time: '8:00', label: 'Cena', icon: plato },
+  { time: '9:00', label: '¡A Bailar!', icon: bola },
+  { time: '11:00', label: 'Trasnochado', icon: snack },
+  { time: '2:00', label: '¡Nos Vamos!', icon: auto },
 ]
 
 function getTimeLeft(targetDate) {
@@ -100,8 +134,9 @@ export default function App() {
           
         </section>
 
-        <section
-  id="presentacion"
+
+
+        <section id="presentacion"
   className="section grid md:grid-cols-2"
 >
  {/* Mensaje - izquierda, fondo claro */}
@@ -147,7 +182,7 @@ export default function App() {
     <div
       className="absolute left-[8%] right-[52%] top-0 bottom-[35%] z-10 bg-cover outline outline-8 md:left-[8%] md:right-[52%] md:top-0 md:bottom-[35%]"
       style={{
-        backgroundImage: `url(${principal})`,
+        backgroundImage: `url(${acostadosfoto})`,
         backgroundPosition: 'center',
         outlineColor: '#F5F2EB',
       }}
@@ -165,9 +200,16 @@ export default function App() {
 </div>
 </section>
 
-<section
+<section id= "Division"
+  className="min-h-[30vh] bg-cover bg-center md:min-h-[50vh]"
+  style={{
+    backgroundImage: `url(${besolargabyn})`,
+  }}
+/>
 
-        className="section flex flex-col items-center justify-center overflow-hidden px-6 py-10 text-center" style={{ backgroundColor: '#f0ece0' }}>
+<section id="academia"
+
+        className="section flex flex-col items-center justify-center overflow-hidden px-6 py-10 text-center" style={{ backgroundColor: '#F5F2EB' }}>
           <div className="leading-none text-[#71794A]">
             <p className="font-cormorant text-4xl md:text-6xl">
               SAVE THE <span className="font-bemdayni text-[1.3em]">D</span>ATE
@@ -180,31 +222,73 @@ export default function App() {
             <p className="font-bemdayni mt-1 text-2xl md:text-4xl">Cinco treinta de la tarde</p>
           </div>
         </section>
-        <section aria-hidden="true" className="section" style={{ backgroundColor: '#71794A' }} />
-
-        <section id="contador" className="font-cormorant section flex items-center justify-center bg-wedding-blush px-6">
-          <div className="w-full max-w-4xl rounded-3xl bg-white p-8 text-center shadow-xl md:p-12">
-            <h2 className="text-3xl font-semibold md:text-5xl">SE LLEGA EL DIA</h2>
-            {timeLeft.isDone ? (
-              <p className="mt-8 text-2xl font-semibold text-wedding-rose">Hoy es el gran día</p>
-            ) : (
-              <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-                <TimeBox value={timeLeft.days} label="Días" />
-                <TimeBox value={timeLeft.hours} label="Horas" />
-                <TimeBox value={timeLeft.minutes} label="Minutos" />
-                <TimeBox value={timeLeft.seconds} label="Segundos" />
-              </div>
-            )}
+        
+ <section id="itinerario" className="section flex flex-col">
+                  {/* Foto de fondo con título */}
+        <div
+          className="relative flex min-h-[45vh] items-start justify-center bg-cover bg-center px-6 pt-10 text-center md:min-h-[55vh] md:pt-16"
+          style={{
+            backgroundImage: `url(${manosbyn})`,
+          }}
+        >
+          <div className="text-[#f8f6f1]">
+            <p className="font-cormorant text-4xl uppercase tracking-[0.25em] md:text-6xl">La Fiesta</p>
+            <p className="font-fortalesia -mt-4 -translate-x-6 text-4xl md:-mt-8 md:-translate-x-10 md:text-6xl">Itinerario</p>
           </div>
+        </div>
+              {/* Línea de tiempo */}
+              <div className="px-6 py-12 md:px-14 md:py-16" style={{ backgroundColor: '#3d4024' }}>
+                <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-x-4 gap-y-14">
+                  {itinerary.map((item, index) => (
+                    <div key={item.label} className="flex min-w-[110px] flex-1 flex-col items-center text-center text-[#f8f6f1]">
+                      <img src={item.icon} alt={item.label} className="mb-3 h-16 w-16 md:h-20 md:w-20" />
+
+                      <div className="flex w-full items-center">
+                        <span className={`h-px flex-1 ${index === 0 ? 'opacity-0' : 'bg-[#f8f6f1]/40'}`} />
+                        <span className="mx-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[#f8f6f1]" />
+                        <span className={`h-px flex-1 ${index === itinerary.length - 1 ? 'opacity-0' : 'bg-[#f8f6f1]/40'}`} />
+                      </div>
+
+                      <p className="font-cormorant mt-2 text-base md:text-xl">{item.time}</p>
+                      <p className="font-cormorant mt-1 text-sm uppercase tracking-wide md:text-base">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
         </section>
 
-        <section id="itinerario" className="section grid bg-white md:grid-cols-2">
+
+  <section id="contador" className="font-cormorant relative">
+  <img
+    src={acostadospies}
+    alt="Fondo contador"
+    className="w-full"
+  />
+  <div className="absolute inset-0 flex items-center justify-center bg-black/25 px-6 text-center">
+    <div className="w-full max-w-4xl text-[#f8f6f1]">
+      <h2 className="text-3xl font-cormorant uppercase md:text-5xl">¡El gran día!</h2>
+      <h2 className="text-3xl font-fortalesia md:text-5xl">Faltan:</h2>
+      {timeLeft.isDone ? (
+        <p className="mt-8 text-2xl font-cormorant uppercase">Hoy es el gran día</p>
+      ) : (
+        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+          <TimeBox value={timeLeft.days} label="Días" />
+          <TimeBox value={timeLeft.hours} label="Horas" />
+          <TimeBox value={timeLeft.minutes} label="Minutos" />
+          <TimeBox value={timeLeft.seconds} label="Segundos" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+
+  <section id="confirmacion" className="section grid bg-white md:grid-cols-2">
           <div
             className="min-h-[40vh] bg-cover bg-center md:min-h-screen"
             style={{
-              backgroundImage:
-                "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=80')",
-            }}
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${difuminada})`,
+    }}
           />
           <div className="flex items-center justify-center px-8 py-14 md:px-14">
             <div className="w-full max-w-md">
@@ -252,9 +336,9 @@ export default function App() {
 
 function TimeBox({ value, label }) {
   return (
-    <div className="rounded-2xl bg-wedding-cream p-4 md:p-6">
-      <p className="text-3xl font-bold md:text-5xl">{String(value).padStart(2, '0')}</p>
-      <p className="mt-1 text-sm uppercase tracking-wider md:text-base">{label}</p>
+    <div className="rounded-2xl bg-white/15 p-4 backdrop-blur-sm md:p-6">
+      <p className="text-3xl font-bold text-[#f8f6f1] md:text-5xl">{String(value).padStart(2, '0')}</p>
+      <p className="mt-1 text-sm uppercase tracking-wider text-[#f8f6f1] md:text-base">{label}</p>
     </div>
   )
 }
