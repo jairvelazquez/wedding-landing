@@ -36,6 +36,7 @@ import sobrefoto1 from "./assets/SAVE SADAI Y JAIR-29.jpg";
 import sobrefoto2 from "./assets/SAVE SADAI Y JAIR-89.jpg";
 import division2 from "./assets/division2.jpg";
 import libro from "./assets/libro.jpg";
+import regalo from "./assets/regalo.svg";
 
 const galleryModules = import.meta.glob('./assets/galeria/*.jpg', { eager: true })
 
@@ -546,7 +547,7 @@ useEffect(() => {
 
       {/* Paleta de colores a evitar */}
           <div className="mt-10 md:mt-16">
-            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-lg">Colores a evitar</p>
+            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-2xl">Colores de las damas:</p>
             <div className="mt-4 flex justify-center gap-2 md:mt-6 md:gap-3">
               {['#75784D', '#8C9440', '#A3A869', '#C5D098', '#E7EACB'].map((color) => (
                 <span
@@ -559,6 +560,7 @@ useEffect(() => {
                 />
               ))}
             </div>
+            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-xl">te pedimos respetuosamente no vestir estos colroes</p>
           </div>
     </div>
   </div>
@@ -595,7 +597,7 @@ useEffect(() => {
   <h2 className="font-fortalesia mt-2 text-5xl text-[#f8f6f1] md:text-7xl">Tu Presencia</h2>
 
   {/* Composición del sobre */}
-<div className="relative mt-12 w-full max-w-md md:max-w-2xl">
+<div className="relative mt-12 w-full max-w-md md:max-w-3xl">
   <img src={sobre} alt="Sobre de invitación" className="w-full" />
 
   {/* Foto 1 - arriba a la izquierda */}
@@ -636,13 +638,7 @@ useEffect(() => {
   {/* Contenido - derecha */}
   <div className="texture-paper flex flex-col items-center justify-center px-8 py-14 text-center md:px-14" style={{ backgroundColor: '#F5F2EB' }}>
     {/* Ícono de regalo */}
-    <svg viewBox="0 0 100 100" className="h-16 w-16 md:h-28 md:w-28" fill="none" stroke="#71794A" strokeWidth="2">
-      <rect x="15" y="38" width="70" height="50" />
-      <path d="M15 55 H85" />
-      <path d="M50 38 V88" />
-      <path d="M50 38 C30 38 30 15 42 15 C50 15 50 30 50 38 Z" />
-      <path d="M50 38 C70 38 70 15 58 15 C50 15 50 30 50 38 Z" />
-    </svg>
+    <img src={regalo} alt="Regalo" className="h-28 w-auto md:h-48" />
 
     <p className="font-cormorant mt-4 text-sm uppercase tracking-[0.3em] text-[#71794A] md:mt-6 md:text-xl">Con cariño</p>
     <h2 className="font-fortalesia mt-2 text-5xl text-[#71794A] md:mt-4 md:text-8xl">Mesa de Regalos</h2>
