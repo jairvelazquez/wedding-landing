@@ -22,7 +22,6 @@ import acostadosfoto from "./assets/acostadosfoto.jpg";
 import iniciomanos from "./assets/iniciomanos.jpg";
 import inicioacostados from "./assets/inicioacostados.jpg";
 import inicioaca from "./assets/inicioaca.jpg";
-import baile from "./assets/SAVE SADAI Y JAIR-16 acos.jpg";
 import tomadosmanos from "./assets/SAVE SADAI Y JAIR-4.jpg";
 import vuelta from "./assets/SAVE SADAI Y JAIR-8.jpg";
 import mirada  from "./assets/SAVE SADAI Y JAIR-9.jpg";
@@ -32,7 +31,21 @@ import besolargabyn  from "./assets/besolargabyn.jpg";
 import academiaLateral from "./assets/SAVE SADAI Y JAIR-4.jpg";
 import vestido from "./assets/vestido.svg";
 import traje from "./assets/traje.svg";
+import sobre from './assets/sobre.png'
+import sobrefoto1 from "./assets/SAVE SADAI Y JAIR-29.jpg";
+import sobrefoto2 from "./assets/SAVE SADAI Y JAIR-89.jpg";
+import division2 from "./assets/division2.jpg";
+import libro from "./assets/libro.jpg";
 
+const galleryModules = import.meta.glob('./assets/galeria/*.jpg', { eager: true })
+
+const galleryPhotos = Object.entries(galleryModules)
+  .sort(([pathA], [pathB]) => {
+    const numA = parseInt(pathA.match(/-(\d+)\.jpg$/)[1], 10)
+    const numB = parseInt(pathB.match(/-(\d+)\.jpg$/)[1], 10)
+    return numA - numB
+  })
+  .map(([, mod]) => mod.default)
 
 const weddingDate = new Date('2026-11-14T17:00:00')
 
@@ -354,7 +367,7 @@ useEffect(() => {
           }}
         />
 
-<section id="academia"
+  <section id="academia"
           ref={academiaRef}
           className="section texture-paper flex flex-col items-center justify-center overflow-hidden px-6 py-10 text-center"
           style={{ backgroundColor: '#F5F2EB' }}
@@ -551,20 +564,124 @@ useEffect(() => {
   </div>
 </section>
 
-        <section id="ubicacion" className="section bg-wedding-cream px-6 py-10 md:px-10 md:py-16">
-          <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center">
-            <h2 className="mb-6 text-center text-3xl font-semibold md:mb-8 md:text-4xl">Ubicación</h2>
-            <div className="overflow-hidden rounded-2xl shadow-xl">
-              <iframe
-                title="Ubicación de la boda"
-                src="https://www.google.com/maps?q=Academia+Renacimiento+y+Trinitate+Philharmonia&output=embed"
-                className="h-[60vh] w-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
-        </section>
+<section id="galeria" className="section px-6 py-16 md:px-10 md:py-20 lg:px-16" style={{ backgroundColor: '#F5F2EB' }}>
+        <div className="mb-10 text-center md:mb-14">
+          <p className="font-cormorant text-xl uppercase tracking-[0.3em] text-[#71794A] md:text-2xl">Momentos</p>
+          <h2 className="font-fortalesia mt-2 text-5xl text-[#71794A] md:text-7xl">Nuestra Galería</h2>
+        </div>
+
+     <div className="mx-auto max-w-[1600px] columns-2 gap-4 md:columns-3 md:gap-6 lg:columns-4">
+          {galleryPhotos.map((photo, index) => (
+            <img
+              key={index}
+              src={photo}
+              alt={`Foto ${index + 1}`}
+              className="mb-4 w-full break-inside-avoid rounded-sm md:mb-6"
+            />
+          ))}
+        </div> 
+        
+</section>
+
+<section id= "Division"
+          className="min-h-[30vh] bg-cover bg-center md:min-h-[50vh]"
+          style={{
+            backgroundImage: `url(${division2})`,
+          }}
+        />
+
+<section id="rsvp" className="section flex flex-col items-center justify-center px-6 py-16 text-center" style={{ backgroundColor: '#71794A' }}>
+  <p className="font-cormorant text-lg uppercase tracking-[0.3em] text-[#f8f6f1] md:text-2xl">Confirma tu asistencia</p>
+  <h2 className="font-fortalesia mt-2 text-5xl text-[#f8f6f1] md:text-7xl">Tu Presencia</h2>
+
+  {/* Composición del sobre */}
+<div className="relative mt-12 w-full max-w-md md:max-w-2xl">
+  <img src={sobre} alt="Sobre de invitación" className="w-full" />
+
+  {/* Foto 1 - arriba a la izquierda */}
+  <img
+    src={sobrefoto1}
+    alt="Foto 1"
+    className="absolute left-[8%] top-[10%] w-[32%] -rotate-6 rounded-sm border-4 border-white shadow-lg"
+  />
+
+  {/* Foto 2 - abajo a la derecha */}
+  <img
+      src={sobrefoto2}
+      alt="Foto 2"
+      className="absolute bottom-[2%] right-[4%] w-[32%] rotate-6 rounded-sm border-4 border-white shadow-lg"
+/>
+</div>
+
+  {/* Botón WhatsApp */}
+  
+    <a href="https://wa.me/5214791016327?text=%C2%A1Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Sadai%20y%20Jair%20%F0%9F%92%9A"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#f8f6f1] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-white md:text-base"
+  >
+    Confirmar por WhatsApp
+  </a>
+</section>
+
+<section id="regalos" className="section grid md:grid-cols-2">
+  {/* Imagen - izquierda */}
+  <div
+    className="min-h-[40vh] bg-cover bg-center md:min-h-screen"
+    style={{
+      backgroundImage: `url(${libro})`,
+    }}
+  />
+
+  {/* Contenido - derecha */}
+  <div className="texture-paper flex flex-col items-center justify-center px-8 py-14 text-center md:px-14" style={{ backgroundColor: '#F5F2EB' }}>
+    {/* Ícono de regalo */}
+    <svg viewBox="0 0 100 100" className="h-16 w-16 md:h-28 md:w-28" fill="none" stroke="#71794A" strokeWidth="2">
+      <rect x="15" y="38" width="70" height="50" />
+      <path d="M15 55 H85" />
+      <path d="M50 38 V88" />
+      <path d="M50 38 C30 38 30 15 42 15 C50 15 50 30 50 38 Z" />
+      <path d="M50 38 C70 38 70 15 58 15 C50 15 50 30 50 38 Z" />
+    </svg>
+
+    <p className="font-cormorant mt-4 text-sm uppercase tracking-[0.3em] text-[#71794A] md:mt-6 md:text-xl">Con cariño</p>
+    <h2 className="font-fortalesia mt-2 text-5xl text-[#71794A] md:mt-4 md:text-8xl">Mesa de Regalos</h2>
+
+    <p className="font-cormorant mt-6 max-w-md text-lg leading-snug text-[#71794A] md:mt-8 md:max-w-xl md:text-2xl">
+      Su presencia es nuestro mejor regalo. Si además desean obsequiarnos algo,
+      dejamos estas opciones con mucho cariño.
+    </p>
+
+    {/* Botones de tiendas */}
+    <div className="mt-8 flex flex-col gap-4 sm:flex-row md:mt-12 md:gap-8">
+      
+        <a href="https://www.amazon.com.mx/wedding/share/jairysadaimesaregalosam"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded-full border border-[#71794A] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-[#f8f6f1] md:px-12 md:py-5 md:text-xl"
+      >
+        Amazon
+      </a>
+      
+        <a href="https://mesaderegalos.liverpool.com.mx/gestiondeeventos/listaderegalos/60011695"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded-full border border-[#71794A] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-[#f8f6f1] md:px-12 md:py-5 md:text-xl"
+      >
+        Liverpool
+      </a>
+    </div>
+
+    {/* Nota sobre efectivo */}
+    <div className="mt-10 border-t border-[#71794A]/20 pt-8 md:mt-16 md:pt-12">
+      <p className="font-fortalesia text-2xl text-[#71794A] md:text-5xl">También aceptamos sobre</p>
+      <p className="font-cormorant mt-2 text-base text-[#71794A]/80 md:mt-3 md:text-xl">
+        Si prefieren un regalo en efectivo, con gusto lo recibimos el día del evento.
+      </p>
+    </div>
+  </div>
+</section>
+      
       </main>
     </div>
   )
