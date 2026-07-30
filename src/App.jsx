@@ -1,13 +1,11 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
 
 import academiaVerde from './assets/academiaverde.png'
-import INICIOFO from "./assets/INICIOFO.jpg";
-import logo from "./assets/path3-5-0.png";
-import acostadospies from "./assets/acostadospies.jpg";
-import bailando from "./assets/bailando.jpg";
-import principal from "./assets/principal.jpg";
-import manosbyn from "./assets/manosbyn.jpg";
-import difuminada from "./assets/difuminada.jpg";
+import INICIOFO from './assets/INICIOFO.webp'
+import acostadospies from './assets/acostadospies.webp'
+import bailando from './assets/bailando.webp'
+import manosbyn from './assets/manosbyn.webp'
+import difuminada from './assets/difuminada.webp'
 import anillos from "./assets/anillos.svg";
 import cocteles from "./assets/cocteles.svg";
 import mesa from "./assets/mesa.svg";
@@ -16,19 +14,8 @@ import plato from "./assets/plato.svg";
 import bola from "./assets/bola.svg";
 import snack from "./assets/snack.svg";
 import auto from "./assets/auto.svg";
-import besobyn from "./assets/besobyn.jpg";
-import acostados from "./assets/acostados.jpg";
-import acostadosfoto from "./assets/acostadosfoto.jpg";
-import iniciomanos from "./assets/iniciomanos.jpg";
-import inicioacostados from "./assets/inicioacostados.jpg";
-import inicioaca from "./assets/inicioaca.jpg";
-import baile from "./assets/SAVE SADAI Y JAIR-16 acos.jpg";
-import tomadosmanos from "./assets/SAVE SADAI Y JAIR-4.jpg";
-import vuelta from "./assets/SAVE SADAI Y JAIR-8.jpg";
-import mirada  from "./assets/SAVE SADAI Y JAIR-9.jpg";
-import difuminadalarga  from "./assets/difuminadalarga.jpg";
-import besolarga  from "./assets/besolarga.jpg";
-import besolargabyn  from "./assets/besolargabyn.jpg";
+import acostadosfoto from './assets/acostadosfoto.webp'
+import besolargabyn from './assets/besolargabyn.webp'
 
 
 const weddingDate = new Date('2026-11-14T17:00:00')
