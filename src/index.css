@@ -119,3 +119,115 @@ html {
 .message-vine::after { right: 12%; transform: translateY(-50%) rotate(28deg); }
 .message-vine-top { top: 4%; }
 .message-vine-bottom { bottom: 4%; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.signature-hidden {
+  clip-path: inset(0 100% 0 0);
+}
+
+.signature-write {
+  animation: writeSignature 2s ease-out forwards;
+}
+
+@keyframes writeSignature {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.texture-paper {
+  position: relative;
+}
+
+.texture-paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.academia-reveal {
+  clip-path: inset(0 100% 0 0);
+}
+
+.academia-reveal-active {
+  animation: revealDrawing 1.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes revealDrawing {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ===== FIX OVERFLOW + ESPACIADO (evita que choque con la siguiente sección) ===== */
+#itinerario {
+  position: relative;
+  z-index: 1;
+}
+
+#itinerario + section {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+}
+
+/* ===== CENTRAR ÚLTIMOS ITEMS EN MÓVIL ===== */
+@media (max-width: 768px) {
+  #itinerario .grid > div:nth-last-child(-n+2) {
+    grid-column: span 3;
+    justify-self: center;
+  }
+}
+
+/* ===== ANIMACIÓN SUAVE PARA CADA ITEM ===== */
+#itinerario .grid > div {
+  transition: all 0.6s ease;
+}
+
+/* ===== OPCIONAL: más aire abajo ===== */
+#itinerario .px-6 {
+  padding-bottom: 80px;
+}
+/* 🔧 EVITA QUE EL ITINERARIO SE ENCIME (arreglo principal) */
+#itinerario {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+/* 👇 AGREGA ESPACIO REAL ENTRE SECCIONES */
+#itinerario .px-6 {
+  padding-bottom: 120px;
+}
+
+
+/* 📱 AJUSTE SOLO MÓVIL: últimos 2 juntos y centrados */
+@media (max-width: 768px) {
+  #itinerario .grid > div:nth-last-child(2),
+  #itinerario .grid > div:last-child {
+    grid-column: span 1;
+    justify-self: center;
+  }
+
+  #itinerario .grid {
+    justify-items: center;
+  }
+}
