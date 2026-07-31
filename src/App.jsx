@@ -69,12 +69,12 @@ const sections = [
 
 const itinerary = [
   { time: '5:30', label: 'Ceremonia', icon: anillos },
-  { time: '6:15', label: 'Coctel de Bienvenida', icon: cocteles },
-  { time: '7:00', label: 'Recepción', icon: mesa },
-  { time: '7:30', label: 'Primer Baile', icon: baileicono },
-  { time: '8:00', label: 'Cena', icon: plato },
-  { time: '9:00', label: '¡A Bailar!', icon: bola },
-  { time: '11:00', label: 'Trasnochado', icon: snack },
+  { time: '6:45', label: 'Coctel de Bienvenida', icon: cocteles },
+  { time: '7:30', label: 'Recepción', icon: mesa },
+  { time: '8:00', label: 'Banquete', icon: plato },
+  { time: '9:00', label: 'Primer Baile', icon: baileicono },
+  { time: '9:15', label: '¡A Bailar, se abre la pista!', icon: bola },
+  { time: '12:30', label: 'Trasnochado', icon: snack },
   { time: '2:00', label: '¡Nos Vamos!', icon: auto },
 ]
 
