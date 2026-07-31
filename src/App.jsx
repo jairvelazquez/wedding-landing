@@ -2,7 +2,7 @@
 
 import academiaVerde from './assets/academiaverde.svg'
 import INICIOFO from './assets/INICIOFO.webp'
-import logo from "./assets/logoblanco.svg";
+import logo from "./assets/logohojas.svg";
 import acostadospies from './assets/acostadospies.webp'
 import bailando from './assets/bailando.webp'
 import principal from "./assets/principal.jpg";
@@ -85,6 +85,27 @@ function getTimeLeft(targetDate) {
   return { days, hours, minutes, seconds, isDone: false }
 }
 
+function useInViewFade(threshold = 0) {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return [ref, visible]
+}
+
 export default function App() {
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(weddingDate))
   const [menuOpen, setMenuOpen] = useState(false)
@@ -97,6 +118,21 @@ export default function App() {
   const [parallaxOffset, setParallaxOffset] = useState(0)
   const [itinerarioVisible, setItinerarioVisible] = useState(false)
   const itinerarioRef = useRef(null)
+  const [contadorTitleRef, contadorTitleVisible] = useInViewFade()
+  const [dividerLogoRef, dividerLogoVisible] = useInViewFade()
+  const [dresscodeRef, dresscodeVisible] = useInViewFade()
+  const [galeriaTitleRef, galeriaTitleVisible] = useInViewFade()
+  const [rsvpRef, rsvpVisible] = useInViewFade()
+  const [regalosRef, regalosVisible] = useInViewFade()
+  const dividerPhotos = [acostados, besolarga, besolargabyn]
+const [dividerIndex, setDividerIndex] = useState(0)
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setDividerIndex((i) => (i + 1) % dividerPhotos.length)
+  }, 3000)
+  return () => clearInterval(interval)
+}, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -361,12 +397,16 @@ useEffect(() => {
           </div>
 </section>
 
-<section id= "Division"
-          className="min-h-[30vh] bg-cover bg-center md:min-h-[50vh]"
-          style={{
-            backgroundImage: `url(${besolargabyn})`,
-          }}
+<section id="Division" className="relative min-h-[30vh] overflow-hidden md:min-h-[50vh]">
+      {dividerPhotos.map((photo, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+          style={{ backgroundImage: `url(${photo})`, opacity: i === dividerIndex ? 1 : 0 }}
         />
+      ))}
+</section>
+
 
   <section id="academia"
           ref={academiaRef}
@@ -670,7 +710,7 @@ useEffect(() => {
 
     {/* Nota sobre efectivo */}
     <div className="mt-10 border-t border-[#71794A]/20 pt-8 md:mt-16 md:pt-12">
-      <p className="font-fortalesia text-2xl text-[#71794A] md:text-5xl">También aceptamos sobre</p>
+    
       <p className="font-cormorant mt-2 text-base text-[#71794A]/80 md:mt-3 md:text-xl">
         Si prefieren un regalo en efectivo, con gusto lo recibimos el día del evento.
       </p>
