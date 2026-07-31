@@ -62,9 +62,10 @@ const weddingDate = new Date('2026-11-14T17:00:00')
 const sections = [
   { id: 'inicio', label: 'Nuestra Boda' },
   { id: 'presentacion', label: 'El Gran Día' },
-  { id: 'contador', label: 'Cuenta regresiva' },
-  { id: 'confirmacion', label: 'Tu Presencia' },
-  { id: 'ubicacion', label: 'Un Gran Detalle' },
+  { id: 'dresscode', label: 'Codigo de vestimenta' },
+  { id: 'galeria', label: 'Nuestra Galeria' },
+  { id: 'rsvp', label: 'Tu Presencia' },
+  { id: 'regalos', label: 'Un Gran Detalle' },
 ]
 
 const itinerary = [
