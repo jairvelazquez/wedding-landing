@@ -614,7 +614,7 @@ useEffect(() => {
                 <div className="flex flex-col items-center">
                   <img src={vestido} alt="Vestido largo de gala" loading="lazy" decoding="async" className="h-28 w-auto md:h-48" />
                   <p className="font-cormorant mt-5 uppercase text-lg leading-snug text-[#71794A] md:mt-6 md:text-2xl">
-                    Ellas:<br />vestido largo de gala
+                    Ellas:<br />vestido largo <br></br> de gala
                   </p>
                 </div>
 
