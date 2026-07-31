@@ -641,8 +641,7 @@ useEffect(() => {
                 />
               ))}
             </div>
-          </div>
-            <div className="mt-10 md:mt-16">
+            <br></br>
             <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-2xl">Colores de los caballeros de honor:</p>
             <div className="mt-4 flex justify-center gap-2 md:mt-6 md:gap-3">
               {['#632c18', '#f2e3c7'].map((color) => (
@@ -656,7 +655,8 @@ useEffect(() => {
                 />
               ))}
             </div>
-            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-xl">te pedimos respetuosamente no vestir estos colroes</p>
+            <br></br>
+            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-xl">te pedimos respetuosamente, mujeres no vestir colores de las damas de honor y hombres no vestir colores de los caballeros de honor</p>
           </div>
     </div>
   </div>
