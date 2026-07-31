@@ -39,6 +39,7 @@ import libro from "./assets/libro.jpg";
 import regalo from "./assets/regalo.svg";
 
 const galleryModules = import.meta.glob('./assets/galeria/*.jpg', { eager: true })
+const galleryThumbModules = import.meta.glob('./assets/galeria/thumbs/*.jpg', { eager: true })
 
 const galleryPhotos = Object.entries(galleryModules)
   .sort(([pathA], [pathB]) => {
@@ -46,7 +47,15 @@ const galleryPhotos = Object.entries(galleryModules)
     const numB = parseInt(pathB.match(/-(\d+)\.jpg$/)[1], 10)
     return numA - numB
   })
-  .map(([, mod]) => mod.default)
+  .map(([path, mod]) => {
+    const filename = path.split('/').pop()
+    const thumb = galleryThumbModules[`./assets/galeria/thumbs/${filename}`]?.default
+
+    return {
+      full: mod.default,
+      thumb: thumb ?? mod.default,
+    }
+  })
 
 const weddingDate = new Date('2026-11-14T17:00:00')
 
@@ -118,6 +127,8 @@ export default function App() {
   const [parallaxOffset, setParallaxOffset] = useState(0)
   const [itinerarioVisible, setItinerarioVisible] = useState(false)
   const itinerarioRef = useRef(null)
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null)
+  const selectedPhoto = selectedPhotoIndex === null ? null : galleryPhotos[selectedPhotoIndex]
   const [contadorTitleRef, contadorTitleVisible] = useInViewFade()
   const [dividerLogoRef, dividerLogoVisible] = useInViewFade()
   const [dresscodeRef, dresscodeVisible] = useInViewFade()
@@ -178,6 +189,32 @@ useEffect(() => {
 
   return () => observer.disconnect()
 }, [])
+
+useEffect(() => {
+  if (selectedPhotoIndex === null) return
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      setSelectedPhotoIndex(null)
+    }
+
+    if (event.key === 'ArrowLeft') {
+      setSelectedPhotoIndex((currentIndex) =>
+        currentIndex === null ? currentIndex : (currentIndex - 1 + galleryPhotos.length) % galleryPhotos.length
+      )
+    }
+
+    if (event.key === 'ArrowRight') {
+      setSelectedPhotoIndex((currentIndex) =>
+        currentIndex === null ? currentIndex : (currentIndex + 1) % galleryPhotos.length
+      )
+    }
+  }
+
+  window.addEventListener('keydown', handleKeyDown)
+
+  return () => window.removeEventListener('keydown', handleKeyDown)
+}, [selectedPhotoIndex])
 
 useEffect(() => {
   const scrollContainer = mainRef.current
@@ -426,6 +463,8 @@ useEffect(() => {
           src={academiaVerde}
           alt="Academia Renacimiento Trinitate"
           ref={buildingRef}
+          loading="lazy"
+          decoding="async"
           className={`my-6 w-full max-w-5xl md:my-8 academia-reveal ${academiaVisible ? 'academia-reveal-active' : ''}`}
           style={{ transform: `translateY(${parallaxOffset}px)` }}
         />
@@ -491,7 +530,7 @@ useEffect(() => {
         }`}
         style={{ transitionDelay: `${index * 120}ms` }}
       >
-        <img src={item.icon} alt={item.label} className="mb-3 h-16 w-16 md:h-20 md:w-20" />
+        <img src={item.icon} alt={item.label} loading="lazy" decoding="async" className="mb-3 h-16 w-16 md:h-20 md:w-20" />
 
         <div className="flex w-full items-center">
           {/* Línea izquierda */}
@@ -546,6 +585,8 @@ useEffect(() => {
             <img
               src={logo}
               alt="Monograma Sadaí y Jair"
+              loading="lazy"
+              decoding="async"
               className="h-16 w-auto md:h-28"
               style={{ filter: 'brightness(0) invert(1)' }}
             />
@@ -571,15 +612,15 @@ useEffect(() => {
               {/* Íconos con etiquetas */}
               <div className="mt-10 flex items-start justify-center gap-12 md:mt-16 md:gap-24">
                 <div className="flex flex-col items-center">
-                  <img src={vestido} alt="Vestido largo de gala" className="h-28 w-auto md:h-48" />
-                  <p className="font-cormorant mt-5 text-lg leading-snug text-[#71794A] md:mt-6 md:text-2xl">
+                  <img src={vestido} alt="Vestido largo de gala" loading="lazy" decoding="async" className="h-28 w-auto md:h-48" />
+                  <p className="font-cormorant mt-5 uppercase text-lg leading-snug text-[#71794A] md:mt-6 md:text-2xl">
                     Ellas:<br />vestido largo de gala
                   </p>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <img src={traje} alt="Traje" className="h-28 w-auto md:h-48" />
-                  <p className="font-cormorant mt-5 text-lg leading-snug text-[#71794A] md:mt-6 md:text-2xl">
+                  <img src={traje} alt="Traje" loading="lazy" decoding="async" className="h-28 w-auto md:h-48" />
+                  <p className="font-cormorant uppercase mt-5 text-lg leading-snug text-[#71794A] md:mt-6 md:text-2xl">
                     Ellos:<br />traje
                   </p>
                 </div>
@@ -587,7 +628,7 @@ useEffect(() => {
 
       {/* Paleta de colores a evitar */}
           <div className="mt-10 md:mt-16">
-            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-2xl">Colores de las damas:</p>
+            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-2xl">Colores de las damas de honor:</p>
             <div className="mt-4 flex justify-center gap-2 md:mt-6 md:gap-3">
               {['#75784D', '#8C9440', '#A3A869', '#C5D098', '#E7EACB'].map((color) => (
                 <span
@@ -600,7 +641,22 @@ useEffect(() => {
                 />
               ))}
             </div>
-            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-xl">te pedimos respetuosamente no vestir estos colroes</p>
+            <br></br>
+            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-2xl">Colores de los caballeros de honor:</p>
+            <div className="mt-4 flex justify-center gap-2 md:mt-6 md:gap-3">
+              {['#632c18', '#f2e3c7'].map((color) => (
+                <span
+                  key={color}
+                  className="h-16 w-10 md:h-24 md:w-16"
+                  style={{
+                    backgroundColor: color,
+                    borderRadius: '999px 999px 8px 8px',
+                  }}
+                />
+              ))}
+            </div>
+            <br></br>
+            <p className="font-cormorant text-sm uppercase tracking-[0.2em] text-[#71794A] md:text-xl">te pedimos respetuosamente, mujeres no vestir colores de las damas de honor y hombres no vestir colores de los caballeros de honor</p>
           </div>
     </div>
   </div>
@@ -614,12 +670,22 @@ useEffect(() => {
 
      <div className="mx-auto max-w-[1600px] columns-2 gap-4 md:columns-3 md:gap-6 lg:columns-4">
           {galleryPhotos.map((photo, index) => (
-            <img
+            <button
               key={index}
-              src={photo}
-              alt={`Foto ${index + 1}`}
-              className="mb-4 w-full break-inside-avoid rounded-sm md:mb-6"
-            />
+              type="button"
+              onClick={() => setSelectedPhotoIndex(index)}
+              className="mb-4 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-sm bg-[#71794A]/10 text-left md:mb-6"
+              aria-label={`Ver foto ${index + 1} en tamaño completo`}
+            >
+              <img
+                src={photo.thumb}
+                alt={`Foto ${index + 1}`}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                className="w-full transition duration-500 hover:scale-[1.02]"
+              />
+            </button>
           ))}
         </div> 
         
@@ -638,12 +704,14 @@ useEffect(() => {
 
   {/* Composición del sobre */}
 <div className="relative mt-12 w-full max-w-md md:max-w-3xl">
-  <img src={sobre} alt="Sobre de invitación" className="w-full" />
+  <img src={sobre} alt="Sobre de invitación" loading="lazy" decoding="async" className="w-full" />
 
   {/* Foto 1 - arriba a la izquierda */}
   <img
     src={sobrefoto1}
     alt="Foto 1"
+    loading="lazy"
+    decoding="async"
     className="absolute left-[8%] top-[10%] w-[32%] -rotate-6 rounded-sm border-4 border-white shadow-lg"
   />
 
@@ -651,6 +719,8 @@ useEffect(() => {
   <img
       src={sobrefoto2}
       alt="Foto 2"
+      loading="lazy"
+      decoding="async"
       className="absolute bottom-[2%] right-[4%] w-[32%] rotate-6 rounded-sm border-4 border-white shadow-lg"
 />
 </div>
@@ -678,7 +748,7 @@ useEffect(() => {
   {/* Contenido - derecha */}
   <div className="texture-paper flex flex-col items-center justify-center px-8 py-14 text-center md:px-14" style={{ backgroundColor: '#F5F2EB' }}>
     {/* Ícono de regalo */}
-    <img src={regalo} alt="Regalo" className="h-28 w-auto md:h-48" />
+    <img src={regalo} alt="Regalo" loading="lazy" decoding="async" className="h-28 w-auto md:h-48" />
 
     <p className="font-cormorant mt-4 text-sm uppercase tracking-[0.3em] text-[#71794A] md:mt-6 md:text-xl">Con cariño</p>
     <h2 className="font-fortalesia mt-2 text-5xl text-[#71794A] md:mt-4 md:text-8xl">Mesa de Regalos</h2>
@@ -710,7 +780,7 @@ useEffect(() => {
 
     {/* Nota sobre efectivo */}
     <div className="mt-10 border-t border-[#71794A]/20 pt-8 md:mt-16 md:pt-12">
-    
+
       <p className="font-cormorant mt-2 text-base text-[#71794A]/80 md:mt-3 md:text-xl">
         Si prefieren un regalo en efectivo, con gusto lo recibimos el día del evento.
       </p>
@@ -719,6 +789,63 @@ useEffect(() => {
 </section>
       
       </main>
+
+      {selectedPhoto && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Foto en tamaño completo"
+          onClick={() => setSelectedPhotoIndex(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedPhotoIndex(null)}
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-black/20 text-white backdrop-blur-sm transition hover:bg-white hover:text-[#71794A]"
+            aria-label="Cerrar foto"
+          >
+            <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation()
+              setSelectedPhotoIndex((currentIndex) =>
+                currentIndex === null ? currentIndex : (currentIndex - 1 + galleryPhotos.length) % galleryPhotos.length
+              )
+            }}
+            className="absolute bottom-5 left-[calc(50%-3.5rem)] flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-black/20 text-white backdrop-blur-sm transition hover:bg-white hover:text-[#71794A] md:bottom-auto md:left-6 md:top-1/2 md:h-12 md:w-12 md:-translate-y-1/2"
+            aria-label="Ver foto anterior"
+          >
+            <svg aria-hidden="true" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <img
+            src={selectedPhoto.full}
+            alt="Foto en tamaño completo"
+            className="max-h-[90vh] max-w-[92vw] rounded-sm object-contain shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          />
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation()
+              setSelectedPhotoIndex((currentIndex) =>
+                currentIndex === null ? currentIndex : (currentIndex + 1) % galleryPhotos.length
+              )
+            }}
+            className="absolute bottom-5 right-[calc(50%-3.5rem)] flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-black/20 text-white backdrop-blur-sm transition hover:bg-white hover:text-[#71794A] md:bottom-auto md:right-6 md:top-1/2 md:h-12 md:w-12 md:-translate-y-1/2"
+            aria-label="Ver foto siguiente"
+          >
+            <svg aria-hidden="true" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   )
 }
