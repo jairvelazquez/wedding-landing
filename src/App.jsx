@@ -775,10 +775,11 @@ useEffect(() => {
         rel="noopener noreferrer"
         className="rounded-full border border-[#71794A] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-[#f8f6f1] md:px-12 md:py-5 md:text-xl"
       >
-        Liverpool
+        Liverpool 
       </a>
     </div>
 
+    <p className="font-cormorant mt-6 max-w-md text-lg leading-snug text-[#71794A] md:mt-8 md:max-w-xl md:text-2xl">Numero de mesa Liverpool 60011695</p>
     {/* Nota sobre efectivo */}
     <div className="mt-10 border-t border-[#71794A]/20 pt-8 md:mt-16 md:pt-12">
 
