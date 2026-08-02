@@ -770,7 +770,7 @@ useEffect(() => {
         Amazon
       </a>
       
-        <a href="https://mesaderegalos.liverpool.com.mx/gestiondeeventos/listaderegalos/60011695"
+        <a href="https://mesaderegalos.liverpool.com.mx/"
         target="_blank"
         rel="noopener noreferrer"
         className="rounded-full border border-[#71794A] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-[#f8f6f1] md:px-12 md:py-5 md:text-xl"
