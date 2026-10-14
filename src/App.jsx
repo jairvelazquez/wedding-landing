@@ -752,39 +752,16 @@ useEffect(() => {
     <img src={regalo} alt="Regalo" loading="lazy" decoding="async" className="h-28 w-auto md:h-48" />
 
     <p className="font-cormorant mt-4 text-sm uppercase tracking-[0.3em] text-[#71794A] md:mt-6 md:text-xl">Con cariño</p>
-    <h2 className="font-fortalesia mt-2 text-5xl text-[#71794A] md:mt-4 md:text-8xl">Mesa de Regalos</h2>
+    <h2 className="font-fortalesia mt-2 text-5xl text-[#71794A] md:mt-4 md:text-8xl">Un Gran Detalle</h2>
 
     <p className="font-cormorant mt-6 max-w-md text-lg leading-snug text-[#71794A] md:mt-8 md:max-w-xl md:text-2xl">
-      Su presencia es nuestro mejor regalo. Si además desean obsequiarnos algo,
-      dejamos estas opciones con mucho cariño.
+      Su presencia es nuestro mejor regalo. Si además lo desean,
+      con mucho cariño recibiremos efectivo el día del evento o transferencia.
     </p>
 
-    {/* Botones de tiendas */}
-    <div className="mt-8 flex flex-col gap-4 sm:flex-row md:mt-12 md:gap-8">
-      
-        <a href="https://www.amazon.com.mx/wedding/share/jairysadaimesaregalosam"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-full border border-[#71794A] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-[#f8f6f1] md:px-12 md:py-5 md:text-xl"
-      >
-        Amazon
-      </a>
-      
-        <a href="https://mesaderegalos.liverpool.com.mx/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-full border border-[#71794A] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-[#f8f6f1] md:px-12 md:py-5 md:text-xl"
-      >
-        Liverpool 
-      </a>
-    </div>
-
-    <p className="font-cormorant mt-6 max-w-md text-lg leading-snug text-[#71794A] md:mt-8 md:max-w-xl md:text-2xl">Numero de mesa Liverpool 60011695</p>
-    {/* Nota sobre efectivo */}
     <div className="mt-10 border-t border-[#71794A]/20 pt-8 md:mt-16 md:pt-12">
-
-      <p className="font-cormorant mt-2 text-base text-[#71794A]/80 md:mt-3 md:text-xl">
-        Si prefieren un regalo en efectivo, con gusto lo recibimos el día del evento.
+      <p className="font-cormorant text-base text-[#71794A]/80 md:text-xl">
+        Gracias por acompañarnos y celebrar este momento con nosotros.
       </p>
     </div>
   </div>
