@@ -57,7 +57,7 @@ const galleryPhotos = Object.entries(galleryModules)
     }
   })
 
-const weddingDate = new Date('2026-11-14T17:00:00')
+const weddingDate = new Date('2026-11-14T16:30:00')
 
 const sections = [
   { id: 'inicio', label: 'Nuestra Boda' },
@@ -69,14 +69,14 @@ const sections = [
 ]
 
 const itinerary = [
-  { time: '5:30', label: 'Ceremonia', icon: anillos },
-  { time: '6:45', label: 'Coctel de Bienvenida', icon: cocteles },
-  { time: '7:30', label: 'Recepción', icon: mesa },
-  { time: '8:00', label: 'Banquete', icon: plato },
-  { time: '9:00', label: 'Primer Baile', icon: baileicono },
-  { time: '9:15', label: '¡A Bailar, se abre la pista!', icon: bola },
-  { time: '12:30', label: 'Trasnochado', icon: snack },
-  { time: '2:00', label: '¡Nos Vamos!', icon: auto },
+  { time: '5:00', label: 'Ceremonia', icon: anillos },
+  { time: '6:15', label: 'Coctel de Bienvenida', icon: cocteles },
+  { time: '7:00', label: 'Recepción', icon: mesa },
+  { time: '7:30', label: 'Banquete', icon: plato },
+  { time: '8:30', label: 'Primer Baile', icon: baileicono },
+  { time: '8:45', label: '¡A Bailar, se abre la pista!', icon: bola },
+  { time: '12:00', label: 'Trasnochado', icon: snack },
+  { time: '1:30', label: '¡Nos Vamos!', icon: auto },
 ]
 
 function getTimeLeft(targetDate) {
@@ -475,13 +475,13 @@ useEffect(() => {
             <p className="font-cormorant mt-1 text-sm uppercase tracking-[0.2em] text-[#71794A]/70 md:text-base">
               León, Guanajuato
             </p>
-            <p className="font-bemdayni mt-3 text-2xl md:text-4xl">Cinco treinta de la tarde</p>
+            <p className="font-bemdayni mt-3 text-2xl md:text-4xl">Cinco de la tarde</p>
           </div>
 
           {/* Botones */}
           <div className={`mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 ${academiaVisible ? 'opacity-100' : 'opacity-0'} transition-opacity delay-[500ms] duration-[1200ms]`}>
             
-              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda%20de%20Sadai%20y%20Jair&dates=20261114T170000/20261114T220000&details=Academia%20Renacimiento%20Trinitate%20Filarmonica&location=Academia%20Renacimiento%20y%20Trinitate%20Philharmonia%2C%20Leon%2C%20Guanajuato"
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda%20de%20Sadai%20y%20Jair&dates=20261114T163000/20261114T213000&details=Academia%20Renacimiento%20Trinitate%20Filarmonica&location=Academia%20Renacimiento%20y%20Trinitate%20Philharmonia%2C%20Leon%2C%20Guanajuato"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-[#71794A] px-6 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-[#f8f6f1] md:text-base"
