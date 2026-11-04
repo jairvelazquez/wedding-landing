@@ -755,9 +755,19 @@ useEffect(() => {
     <h2 className="font-fortalesia mt-2 text-5xl text-[#71794A] md:mt-4 md:text-8xl">Un Gran Detalle</h2>
 
     <p className="font-cormorant mt-6 max-w-md text-lg leading-snug text-[#71794A] md:mt-8 md:max-w-xl md:text-2xl">
-      Su presencia es nuestro mejor regalo. Si además lo desean,
-      con mucho cariño recibiremos efectivo el día del evento o transferencia.
+      Su presencia es nuestro mejor regalo. Si desean tener un detalle adicional,
+      pueden visitar nuestra mesa de regalos. Ese día también recibiremos efectivo
+      o transferencia. Muchas gracias!
     </p>
+
+    <a
+      href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60011695"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-8 inline-flex items-center rounded-full border border-[#71794A] px-8 py-3 font-cormorant text-sm uppercase tracking-wide text-[#71794A] transition hover:bg-[#71794A] hover:text-white md:text-base"
+    >
+      Ver mesa de regalos
+    </a>
 
     <div className="mt-10 border-t border-[#71794A]/20 pt-8 md:mt-16 md:pt-12">
       <p className="font-cormorant text-base text-[#71794A]/80 md:text-xl">
